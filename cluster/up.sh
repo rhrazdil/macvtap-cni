@@ -5,7 +5,7 @@ set -ex
 source ./cluster/kubevirtci.sh
 kubevirtci::install
 
-$(kubevirtci::path)/cluster-up/up.sh
+$(kubevirtci::path)/cluster-up/up.sh || $(kubevirtci::path)/cluster-up/kubectl.sh get networkaddonsconfig cluster -o yaml
 
 set +ex
 echo '==============================================================================='
